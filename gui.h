@@ -1,5 +1,6 @@
 #include <commands.h>
+#include <base.h>
 
-void printField(int field[9][9]);
+void printField(Sudoku sudoku);
 
 void printMenu(int state);

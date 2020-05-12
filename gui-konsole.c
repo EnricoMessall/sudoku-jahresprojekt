@@ -9,7 +9,7 @@
         field[9][9]:
             the sudoku field
 */
-void printField(int field[9][9]) {
+void printField(Sudoku sudoku) {
     printf("  | A B C | D E F | G H I\n");
     printf("-------------------------\n");
     for(int y = 0; y < 9; y++) {
@@ -21,7 +21,7 @@ void printField(int field[9][9]) {
             if(x != 0 && x % 3 == 0) {
                 printf("| ");
             }
-            printf("%i ", field[x][y]);
+            printf("%i ", sudoku.field[x][y][1]);
         }
         printf("\n");
     }
