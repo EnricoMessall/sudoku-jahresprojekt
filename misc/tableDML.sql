@@ -1,7 +1,7 @@
-INSERT INTO users
+INSERT INTO users (ID, Nickname)
 VALUES
   (NULL, "haxor");
-INSERT INTO userScore
+INSERT INTO userScore (ID, UserID, Time, Difficulty)
 VALUES
   (
     NULL,
@@ -12,6 +12,6 @@ VALUES
       WHERE
         Nickname = "haxor"
     ),
-    99,
+    1589549576,
     0
   );
