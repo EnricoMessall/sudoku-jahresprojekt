@@ -2,7 +2,11 @@
 #define MEDIUM 1
 #define HARD 2
 
-#define USER_LENGTH 16
+#define USER_NAME_MAX_LENGTH 16
+
+#define STATE_MAIN 0
+#define STATE_GAME 1
+#define STATE_LEADERBOARD 2
 
 typedef struct sudoku
 {
