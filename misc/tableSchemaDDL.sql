@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS users(
   ID INTEGER PRIMARY KEY AUTOINCREMENT,
-  Nickname VARCHAR(16) NOT NULL
+  Nickname VARCHAR(16) NOT NULL,
+  UNIQUE (Nickname)
 );
 -- NOTE: For the constraint to work properly, set: PRAGMA foreign_keys = ON
 -- see https://stackoverflow.com/a/52226336 for more information
