@@ -29,7 +29,7 @@ int disconnectFromDB(SQLite3Context db)
     return db.connection_state;
 }
 
-int deleteUser(LeaderBoardElement element)
+int deleteUser(const char *userName)
 {
     SQLite3Context db = connectToDB();
 
@@ -37,7 +37,7 @@ int deleteUser(LeaderBoardElement element)
 
     if (db.connection_state == SQLITE_OK)
     {
-        char *sql = SQL_STATEMENT_DELETE_FROM_TBL_USERS(element.user);
+        char *sql = SQL_STATEMENT_DELETE_FROM_TBL_USERS(userName);
         db.connection_state = sqlite3_exec(db.connection, sql, NULL, NULL, &db.err_msg);
         sql = NULL;
     }

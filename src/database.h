@@ -32,7 +32,7 @@ typedef struct db
 SQLite3Context connectToDB(void);
 int disconnectFromDB(SQLite3Context);
 void setFK_ON(SQLite3Context);
-int deleteUser(LeaderBoardElement);
+int deleteUser(const char *);
 void createTableIfNotExists(SQLite3Context, const char *);
 void insertIntoTable(SQLite3Context, const char *);
 void dbCheckExecutionState(SQLite3Context);

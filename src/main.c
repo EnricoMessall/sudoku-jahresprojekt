@@ -40,9 +40,9 @@ int main(void)
     //     }
     // }
 
-    // deleteUser(elements[0]);
-    // deleteUser(elements[1]);
-    // deleteUser(elements[2]);
+    // deleteUser(elements[0].user);
+    // deleteUser(elements[1].user);
+    // deleteUser(elements[2].user);
 
     return code;
 }
