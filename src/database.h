@@ -29,9 +29,12 @@ typedef struct db
     int connection_state;
 } SQLite3Context;
 
-void setFK_ON(SQLite3Context db);
-void createTableIfNotExists(SQLite3Context db, const char *statement);
-void insertIntoTable(SQLite3Context db, const char *statement);
-void dbCheckExecutionState(SQLite3Context db);
+SQLite3Context connectToDB(void);
+int disconnectFromDB(SQLite3Context);
+void setFK_ON(SQLite3Context);
+int deleteUser(LeaderBoardElement);
+void createTableIfNotExists(SQLite3Context, const char *);
+void insertIntoTable(SQLite3Context, const char *);
+void dbCheckExecutionState(SQLite3Context);
 
 #endif

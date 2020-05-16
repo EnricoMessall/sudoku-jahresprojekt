@@ -19,6 +19,9 @@
 #define SQL_STATEMENT_INSERT_INTO_TBL_USERS "INSERT INTO %s (%s, %s) VALUES (%s, '%s')"
 #define SQL_STATEMENT_INSERT_INTO_TBL_SCORES "INSERT INTO %s (%s, %s, %s, %s) VALUES (%s, (SELECT %s FROM %s WHERE %s = '%s'), %d, %d)"
 
+// SQL DELETE
+#define SQL_STATEMENT_DELETE_FROM_TBL_USERS(user) sqlite3_mprintf("DELETE FROM %s WHERE %s = '%s'", TABLENAME_USERS, TBL_USERS_COLUMN_Nickname, user)
+
 // SQLite3 PRAGMA
 #define SQL_STATEMENT_PRAGMA_TURN_FOREIGN_KEYS_ON "PRAGMA foreign_keys = ON"
 

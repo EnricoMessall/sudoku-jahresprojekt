@@ -8,6 +8,47 @@
 #include "leaderboard.h"
 #include "statements.h"
 
+SQLite3Context connectToDB()
+{
+    SQLite3Context db;
+    db.err_msg = NULL;
+
+    db.connection_state = sqlite3_open(DATABASE, &db.connection);
+
+    if (db.connection_state != SQLITE_OK)
+        printf("\nError[%i]; Could not open Database: %s\n", db.connection_state, sqlite3_errmsg(db.connection));
+
+    return db;
+}
+
+int disconnectFromDB(SQLite3Context db)
+{
+    free(db.err_msg);
+    sqlite3_close(db.connection);
+
+    return db.connection_state;
+}
+
+int deleteUser(LeaderBoardElement element)
+{
+    SQLite3Context db = connectToDB();
+
+    setFK_ON(db);
+
+    if (db.connection_state == SQLITE_OK)
+    {
+        char *sql = SQL_STATEMENT_DELETE_FROM_TBL_USERS(element.user);
+        db.connection_state = sqlite3_exec(db.connection, sql, NULL, NULL, &db.err_msg);
+        sql = NULL;
+    }
+    else
+        return SQLITE_ERROR;
+
+    dbCheckExecutionState(db);
+
+    return disconnectFromDB(db);
+}
+
 // Saves the User's Scorestate in the Database.
 // NOTE: On first Error encountered while saving, any subsequent operation will be skipped
 // and a Errormessage will be displayed to the console.
