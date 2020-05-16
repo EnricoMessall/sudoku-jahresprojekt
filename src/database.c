@@ -54,16 +54,11 @@ int deleteUser(LeaderBoardElement element)
 // and a Errormessage will be displayed to the console.
 int save(LeaderBoardElement leaderBoardElement)
 {
-    SQLite3Context db;
-    db.err_msg = NULL;
+    SQLite3Context db = connectToDB();
 
-    db.connection_state = sqlite3_open(DATABASE, &db.connection);
-
+    // Check if connection was successful
     if (db.connection_state != SQLITE_OK)
-    {
-        printf("\nError[%i]; Could not open Database: %s\n", db.connection_state, sqlite3_errmsg(db.connection));
         return SQLITE_ERROR;
-    }
 
     // Create Tables If not Exist. Both tables are required to save a user completely.
     createTableIfNotExists(db, SQL_STATEMENT_CREATE_TBL_USERS);
@@ -75,10 +70,7 @@ int save(LeaderBoardElement leaderBoardElement)
 
     dbCheckExecutionState(db);
 
-    free(db.err_msg);
-    sqlite3_close(db.connection);
-
-    return db.connection_state;
+    return disconnectFromDB(db);
 }
 
 // In order for Foreign Key Constraints to work properly SQLite3
