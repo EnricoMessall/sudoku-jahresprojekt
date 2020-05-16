@@ -3,8 +3,7 @@
 #include <time.h>
 
 #include "leaderboard.h"
-
-#include "database.c"
+#include "leaderboard.c"
 
 //TODO: When finished, speak with Nicolas about pushing project to github repo
 int main(void)
