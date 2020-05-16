@@ -7,10 +7,6 @@
 #ifndef LEADERBOARD_H
 #define LEADERBOARD_H
 
-// Integer Bool nonconventional to avoid conflicting declarations
-#define IS 1
-#define ISNOT 0
-
 // Errors
 #define ON_SAVE_ERROR -1
 

@@ -7,8 +7,7 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
-#include "base.h"
-#include "sqlite3.h"
+#include "dbHelper.h"
 
 #define DATABASE "Sudoku.db"
 #define TABLENAME_USERS "users"
@@ -22,19 +21,8 @@
 #define TBL_SCORE_COLUMN_Time "Time"
 #define TBL_SCORE_COLUMN_Difficulty "Difficulty"
 
-typedef struct db
-{
-    sqlite3 *connection;
-    char *err_msg;
-    int connection_state;
-} SQLite3Context;
-
-SQLite3Context connectToDB(void);
-int disconnectFromDB(SQLite3Context);
-void setFK_ON(SQLite3Context);
 int deleteUser(const char *);
 void createTableIfNotExists(SQLite3Context, const char *);
 void insertIntoTable(SQLite3Context, const char *);
-void dbCheckExecutionState(SQLite3Context);
 
 #endif

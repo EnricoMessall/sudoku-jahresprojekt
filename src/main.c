@@ -2,6 +2,8 @@
 #include <string.h>
 #include <time.h>
 
+#include "leaderboard.h"
+
 #include "database.c"
 
 //TODO: When finished, speak with Nicolas about pushing project to github repo

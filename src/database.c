@@ -1,33 +1,5 @@
-#define _XOPEN_SOURCE
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "base.h"
-#include "sqlite3.h"
-#include "database.h"
-#include "leaderboard.h"
-#include "statements.h"
-
-SQLite3Context connectToDB()
-{
-    SQLite3Context db;
-    db.err_msg = NULL;
-
-    db.connection_state = sqlite3_open(DATABASE, &db.connection);
-
-    if (db.connection_state != SQLITE_OK)
-        printf("\nError[%i]; Could not open Database: %s\n", db.connection_state, sqlite3_errmsg(db.connection));
-
-    return db;
-}
-
-int disconnectFromDB(SQLite3Context db)
-{
-    free(db.err_msg);
-    sqlite3_close(db.connection);
-
-    return db.connection_state;
-}
+#include "dbHelper.h"
+#include "dbHelper.c"
 
 int deleteUser(const char *userName)
 {
@@ -73,15 +45,6 @@ int save(LeaderBoardElement leaderBoardElement)
     return disconnectFromDB(db);
 }
 
-// In order for Foreign Key Constraints to work properly SQLite3
-// requires this option to be activated each new Connection via a simple Statement.
-// This function activates the SQLite3 FK Constraint feature for this Session.
-void setFK_ON(SQLite3Context db)
-{
-    if (db.connection_state == SQLITE_OK)
-        db.connection_state = sqlite3_exec(db.connection, SQL_STATEMENT_PRAGMA_TURN_FOREIGN_KEYS_ON, NULL, NULL, &db.err_msg);
-}
-
 // Creates a SQLite3 Sudoku.db table based on the passed sql statement,
 // as long as the Database Connection State did not encounter any Errors before.
 void createTableIfNotExists(SQLite3Context db, const char *sql)
@@ -95,11 +58,4 @@ void insertIntoTable(SQLite3Context db, const char *sql)
 {
     if (db.connection_state == SQLITE_OK)
         db.connection_state = sqlite3_exec(db.connection, sql, NULL, NULL, &db.err_msg);
-}
-
-// Checks the Database Execution State and on Error, prints the Errormessage & Errornumber to the console.
-void dbCheckExecutionState(SQLite3Context db)
-{
-    if (db.connection_state != SQLITE_OK)
-        printf("\nSQL Error[%i]: %s\n", db.connection_state, db.err_msg);
 }
