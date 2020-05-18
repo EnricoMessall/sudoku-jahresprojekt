@@ -12,17 +12,17 @@ typedef struct command {
     char name[COMMAND_LENGTH_NAME];
     char description[COMMAND_LENGTH_DESCRIPTION];
     int categories[COMMAND_MAX_CATEGORIES];
-    int tempValue;
+    int selection;
 } Command;
+
+typedef struct menu {
+    Command *commands;
+    int commandAmount;
+    int state;
+} Menu;
 
 // Array of all valid commands, order in array defines print order
 Command VALID_COMMANDS[] = {
-    // MAIN 
-    {
-        "Show Leaderboard",
-        "Displays the leaderboard",
-        {CATEGORY_MAIN}
-    },
     // GAME
     {
         "New Game",
@@ -44,10 +44,28 @@ Command VALID_COMMANDS[] = {
         "Quits the current game and goes back to the main menu.",
         {CATEGORY_GAME}
     },
+    // MAIN 
+    {
+        "Leaderboard Menu",
+        "Displays the leaderboard",
+        {CATEGORY_MAIN}
+    },
+    // LEADERBOARD
+    {
+        "Print Leaderboard",
+        "Prints the leaderboard after the users entered the difficulty",
+        {CATEGORY_LEADERBOARD}
+    },
     // GENERAL
     {
         "Exit",
         "Closes the game.",
         {CATEGORY_GENERAL}
     },
+};
+
+Command COMMAND_BACK = {
+    "Back",
+    "Goes back to the previous menu",
+    {}
 };

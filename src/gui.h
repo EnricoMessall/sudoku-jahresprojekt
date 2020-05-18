@@ -1,15 +1,14 @@
 #include <commands.h>
 #include <base.h>
 
+
 #define CHANGESTATE_NOTHING 0
-#define CHANGESTATE_GAME_NEW 1
-#define CHANGESTATE_GAME_QUIT 2
-#define CHANGESTATE_REQUEST_HINT 3
-#define CHANGESTATE_REQUEST_DESCRIPTION 4
+#define CHANGESTATE_MENU 1
 
 typedef struct fieldChange {
-    int location[2];
-    int change;
+    int x;
+    int y;
+    int value;
 } FieldChange;
 
 typedef struct change {
@@ -19,9 +18,11 @@ typedef struct change {
 
 void printField(Sudoku sudoku);
 
-void printLeaderboard(LeaderBoardElement *leaderBoardElement);
+void printLeaderboard(LeaderBoardElement *leaderBoardElement, int amount);
 
-void printMenu(int state);
+void printMenu(Menu menu);
+
+Command getMenuSelection(Menu menu);
 
 /*
     Description:
@@ -36,3 +37,5 @@ int getDifficulty(void);
         Returns the Change
 */
 Change getChange(void);
+
+void getHintCoordinates(int * coordinates);
