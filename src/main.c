@@ -5,9 +5,7 @@
 #include "leaderboard.h"
 #include "leaderboard.c"
 
-//TODO: When finished, speak with Nicolas about pushing project to github repo
 //TODO: Organize #includes
-//TODO: Put every files in src/ but main.c and base.h into src/leaderboard/
 int main(void)
 {
     srand(time(NULL));
