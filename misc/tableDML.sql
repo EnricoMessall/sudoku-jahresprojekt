@@ -15,3 +15,13 @@ VALUES
     1589549576,
     0
   );
+SELECT
+  Nickname,
+  Time,
+  Difficulty
+FROM userScore
+INNER JOIN users ON users.ID = userScore.UserID
+WHERE
+  Difficulty = 1
+ORDER BY
+  Time ASC;

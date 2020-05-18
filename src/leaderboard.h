@@ -13,4 +13,7 @@
 // Success
 #define LEADERBOARD_OK 0
 
+// Maximum number of elements returned
+#define MAX_LEADERBOARD_ELEMENTS 10
+
 #endif

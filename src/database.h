@@ -8,6 +8,7 @@
 #define DATABASE_H
 
 #include "dbHelper.h"
+#include "base.h"
 
 #define DATABASE "Sudoku.db"
 #define TABLENAME_USERS "users"
@@ -21,8 +22,10 @@
 #define TBL_SCORE_COLUMN_Time "Time"
 #define TBL_SCORE_COLUMN_Difficulty "Difficulty"
 
-int deleteUser(const char *);
 void createTableIfNotExists(SQLite3Context, const char *);
 void insertIntoTable(SQLite3Context, const char *);
+LeaderBoardElement *selectRecords(SQLite3Context, int);
+int callback(void *, int, char **, char **);
+static void add(LeaderBoardElement);
 
 #endif

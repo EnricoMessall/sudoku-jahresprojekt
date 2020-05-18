@@ -23,3 +23,21 @@ int save(LeaderBoardElement leaderBoardElement)
 
     return disconnectFromDB(db);
 }
+
+// Retrieves all the User Records based on the Difficulty [EASY, MEDIUM, HARD], ordered by Time ascending.
+// Returns the query in the form of an ordered Array of LeaderBoardElements.
+LeaderBoardElement *getLeaderBoardElements(int difficulty)
+{
+    SQLite3Context db = connectToDB();
+
+    // Check if connection was successful
+    if (db.connection_state != SQLITE_OK)
+        return NULL;
+
+    LeaderBoardElement *elements = selectRecords(db, difficulty);
+
+    dbCheckExecutionState(db);
+    disconnectFromDB(db);
+
+    return elements;
+}
