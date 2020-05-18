@@ -1,0 +1,65 @@
+# Made with: https://codepen.io/patrickhlauke/pen/azbYWZ
+
+Ideally:
+
+    projectRoot/
+    ├── build/...
+    ├── src/
+    │   ├── Bestenliste/
+    │   │    ├── subdirs/...
+    │   │    └── *.c
+    │   ├── Generator/
+    │   │    ├── subdirs/...
+    │   │    └── *.c
+    │   ├── AnotherModule/
+    │   │    ├── subdirs/...
+    │   │    └── *.c
+    │   ├── CMakeLists.txt
+    │   ├── *.*
+    │   ├── *.db
+    │   └── main.c
+    ├── lib/
+    │   ├── Bestenliste/
+    │   │    ├── subdirs/...
+    │   │    └── *.h
+    │   ├── Generator/
+    │   │    ├── subdirs/...
+    │   │    └── *.h
+    │   ├── AnotherModule/
+    │   │    ├── subdirs/...
+    │   │    └── *.h
+    │   ├── *.*
+    │   └── main.h
+    ├── misc/
+    │   ├── *.*
+    │   └── dataBaseSketch.png
+    └── *.*
+
+Actually:
+
+    projectRoot/
+    ├── Bestenliste/
+    │   ├── build/...
+    │   ├── src/...
+    │   ├── lib/...
+    │   ├── misc/...
+    │   └── *.*
+    ├── Generator/
+    │   ├── build/...
+    │   ├── src/...
+    │   ├── lib/...
+    │   ├── misc/...
+    │   └── *.*
+    ├── AnotherModule/
+    │   ├── build/...
+    │   ├── src/...
+    │   ├── lib/...
+    │   ├── misc/...
+    │   └── *.*
+    ├── src/
+    │   ├── CMakeLists.txt
+    │   ├── *.c
+    │   └── main.c
+    └── lib/
+        ├── *.h
+        └── main.h
