@@ -78,10 +78,14 @@ int main(void)
     {
         for (int i = 0; i < MAX_LEADERBOARD_ELEMENTS; i++)
         {
-            printf("\n");
-            printf("Nickname: %s\n", list[i].user);
-            printf("Time: %ld\n", list[i].time);
-            printf("Difficulty: %i\n", list[i].difficulty);
+            // Omit the empty elements in the array
+            if (list[i].user[0] != '\0')
+            {
+                printf("\n");
+                printf("Nickname: %s\n", list[i].user);
+                printf("Time: %ld\n", list[i].time);
+                printf("Difficulty: %i\n", list[i].difficulty);
+            }
         }
     }
 
