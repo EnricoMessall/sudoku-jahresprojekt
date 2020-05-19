@@ -75,9 +75,13 @@ void printHintDialog(int coordinates[2], int old, int new) {
 }
 
 /*
-    //TODO
+    description:
+        asks the user for coordinates
+    variables:
+        coordinates:
+            a 2 dim int array which is changed acording to the user input
 */
-void getHintCoordinates(int * coordinates) {
+void getHintCoordinates(int coordinates[2]) {
     char input[3];
     coordinates[0] = -1;
     coordinates[1] = -1;
@@ -101,6 +105,15 @@ void getHintCoordinates(int * coordinates) {
     } while(coordinates[0] == -1 || coordinates[1] == -1);
 }
 
+/*
+    description:
+        asks the user which command should be selected an returns it
+    variables:
+        menu:
+            the menu which should be used
+    returns:
+        the selected command
+*/
 Command getMenuSelection(Menu menu) {
     int menuSelection = 0;
     do {
@@ -110,6 +123,19 @@ Command getMenuSelection(Menu menu) {
     return menu.commands[menuSelection-1];
 }
 
+/*
+    description:
+        Returns the menu corresponding to the state
+
+    variables:
+        state:
+            which menu should be genereated
+        back:
+            0 = without back option
+            1 = with back option
+    return:
+
+*/
 Menu getMenu(int state, int back) {
     Command * commands = malloc(sizeof(VALID_COMMANDS));
     int amount = 0;
@@ -140,7 +166,8 @@ Menu getMenu(int state, int back) {
     descrption:
         prints the menu in console depending of the state
     variables:
-        
+        menu:
+            The menu which is printed
 */
 void printMenu(Menu menu) {
     switch(menu.state) {
@@ -231,9 +258,10 @@ int getDifficulty(void) {
 
 /*
     description:
-       
+       returns a change after a dialog with the user
     returns:
         returns a change with changestate 1 if user requested the menu
+        returns a change with a fieldChange if the user entered Coordinates
 */
 Change getChange(void) {
     char input[5];
