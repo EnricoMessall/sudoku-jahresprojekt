@@ -1,3 +1,12 @@
+/**
+ * Header Guard, prevents this header file from being inlcuded more than once
+ * See for mor Info: 
+ *      http://faculty.cs.niu.edu/~mcmahon/CS241/c241man/node90.html
+ *      https://stackoverflow.com/a/30877548
+*/
+#ifndef BASE_H
+#define BASE_H
+
 #define EASY 0
 #define MEDIUM 1
 #define HARD 2
@@ -21,7 +30,7 @@ typedef struct leaderBoardElement
 {
     int difficulty;
     long time;
-    char user[USER_LENGTH];
+    char user[USER_NAME_MAX_LENGTH];
 } LeaderBoardElement;
 
 Sudoku getHelp(Sudoku sudoku);
@@ -29,5 +38,7 @@ Sudoku createNew();
 LeaderBoardElement *getLeaderBoardElements(int difficulty);
 char *fetchGameRules();
 // Calls save()
-int calculateScore(Sudoku sudoku, char user[USER_LENGTH]);
+int calculateScore(Sudoku sudoku, char user[USER_NAME_MAX_LENGTH]);
 int save(LeaderBoardElement element);
+
+#endif
