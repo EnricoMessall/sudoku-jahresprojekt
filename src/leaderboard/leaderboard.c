@@ -1,3 +1,4 @@
+#include "leaderboard.h"
 #include "database.c"
 
 // Saves the User's Scorestate in the Database.
