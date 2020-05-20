@@ -27,6 +27,9 @@ void insertIntoTable(SQLite3Context db, const char *sql)
 // Returns either a ordered Array of LeaderBoardElement Items or a NULL on Error to the Database Connection State.
 LeaderBoardElement *selectRecords(SQLite3Context db, int difficulty)
 {
+    // Reset array
+    memset(elements, 0, MAX_LEADERBOARD_ELEMENTS * (sizeof(elements[0])));
+
     if (db.connection_state == SQLITE_OK)
         db.connection_state = sqlite3_exec(db.connection, SQL_STATEMENT_SELECT_USER_RECORDS_WITH_DIFFICULTY(difficulty), callback, 0, &db.err_msg);
     else
@@ -56,6 +59,10 @@ int callback(void *NotUsed, int nColumns, char **strArrRows,
 static void add(LeaderBoardElement element)
 {
     static int i = 0;
-    elements[i] = element;
+    // Reset i if Array is Empty
+    if (i > 0 && strcmp(elements[0].user, "") == 0 && elements[0].time == 0)
+        i = 0;
+    if(i < MAX_LEADERBOARD_ELEMENTS)
+        elements[i] = element;
     i++;
 }
