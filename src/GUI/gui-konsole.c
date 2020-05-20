@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void flushInputStream(void) {
+   int ch;
+   while ((ch = getchar()) != '\n' && ch != EOF) {}
+}
+
 /*
     description:
         parses the given difficulty to a char array
@@ -89,6 +94,7 @@ void getHintCoordinates(int coordinates[2]) {
         printf("Please enter Coordinates (Example: A1)\n");
         printf("Input: ");
         scanf("%3s", input);
+        flushInputStream();
         if(sizeof(input) > 0) {
             // X Handling
             if(input[0] >= 65 && input[0] <= 73) {
@@ -119,6 +125,7 @@ Command getMenuSelection(Menu menu) {
     do {
         printf("Input (1-%i): ", menu.commandAmount);
         scanf("%i", &menuSelection);
+        flushInputStream();
     } while(menuSelection < 1 || menuSelection > menu.commandAmount);
     return menu.commands[menuSelection-1];
 }
@@ -252,6 +259,7 @@ int getDifficulty(void) {
         printf("[2] MEDIUM\n");
         printf("[3] HARD\n\nPlease select difficulty: ");
         scanf("%i", &difficulty);
+        flushInputStream();
     } while(difficulty != 1 && difficulty != 2 && difficulty != 3);
     return difficulty - 1;
 }
@@ -272,6 +280,7 @@ Change getChange(void) {
         printf("Please enter Coordinates (Example: A1-2) or 'm' for menu\n");
         printf("Input: ");
         scanf("%5s", input);
+        flushInputStream();
         if(sizeof(input) > 0) {
             //menu
             if(input[0] == 'm') {
