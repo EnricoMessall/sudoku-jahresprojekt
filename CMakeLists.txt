@@ -6,11 +6,21 @@ include_directories(src)
 include_directories(${CMAKE_SOURCE_DIR}/src/leaderboard)
 
 add_executable(sudoku src/main.c)
-# add_executable(sudoku_win.exe WIN32 src/main.c) ## TODO: Linking not working for Exe file
+add_executable(sudoku_win.exe WIN32 src/main.c) ## TODO: Check if this is working on Windows
 
-# https://discourse.cmake.org/t/cannot-get-tiny-test-with-an-extrenal-static-library-to-run/467
-list(APPEND CMAKE_PREFIX_PATH ${CMAKE_SOURCE_DIR}/lib)
-find_package(SQLite3)
-if(SQLite3_FOUND)
-    target_link_libraries(sudoku PRIVATE SQLite::SQLite3)
-endif(SQLite3_FOUND)
+# Src: https://dmerej.info/blog/post/chuck-norris-part-2-sqlite-conan/
+add_library(sqlite3 STATIC IMPORTED)
+set_target_properties(sqlite3
+  PROPERTIES
+  IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/lib/libsqlite3.a
+  INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_SOURCE_DIR}/lib
+)
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  set_target_properties(sqlite3
+    PROPERTIES
+      INTERFACE_LINK_LIBRARIES "dl;pthread"
+   )
+endif()
+
+target_link_libraries(sudoku sqlite3)
