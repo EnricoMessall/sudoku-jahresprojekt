@@ -6,7 +6,7 @@ include_directories(src)
 include_directories(${CMAKE_SOURCE_DIR}/src/leaderboard)
 
 add_executable(sudoku src/main.c)
-add_executable(sudoku_win.exe WIN32 src/main.c) ## TODO: Check if this is working on Windows
+# add_executable(sudoku_win.exe WIN32 src/main.c) ## TODO: Check if this is working on Windows
 
 # Src: https://dmerej.info/blog/post/chuck-norris-part-2-sqlite-conan/
 add_library(sqlite3 STATIC IMPORTED)
