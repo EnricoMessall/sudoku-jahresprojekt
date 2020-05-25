@@ -5,7 +5,11 @@
 #ifndef JAHRESPROJEKT_GENERATOR_H
 #define JAHRESPROJEKT_GENERATOR_H
 
+#define VERTICAL_LINE 0
+#define HORIZONTAL_LINE 1
+
 #include "base.h"
+#include <stdlib.h>
 int matchLine(int direction, int number, int fields[9][9]);
 
 /**

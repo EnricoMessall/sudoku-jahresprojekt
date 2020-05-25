@@ -20,7 +20,7 @@
 typedef struct sudoku
 {
     // First layer = Generator; Second layer = User; Last Array Dimension => [2]
-    int field[9][9][2];
+    int field[2][9][9];
     int difficulty;
     long startTime;
     int helpCounter;
