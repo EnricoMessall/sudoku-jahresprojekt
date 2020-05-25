@@ -16,6 +16,7 @@ int matchLine(int direction, int number, int fields[9][9]){
     int field = number % 3;
     if(field == 0) field = 3;
     field--;
+    field *= direction == HORIZONTAL_LINE ? 3 : 1;
 
     int nextBox = startBox + addition, lastBox = nextBox + addition;
     int lineFields[9] = {fields[startBox][field], fields[startBox][addition + field], fields[startBox][(2 * addition) + field],
