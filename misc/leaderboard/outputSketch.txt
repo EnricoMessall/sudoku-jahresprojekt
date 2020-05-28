@@ -1,0 +1,21 @@
+Bestenliste:
+Difficulty Mode: Hard
+Position    Nutzername (Username)     Zeit (Time)
+   #1           NOLIFE                  09:13
+   #2           haxor                   10:04
+   #3           sudokunator             12:53
+   #4           loser                   01:04:23
+
+Difficulty Mode: Medium
+Position    Nutzername (Username)     Zeit (Time)
+   #1           NOLIFE                  09:13
+   #2           haxor                   10:04
+   #3           sudokunator             12:53
+   #4           loser                   01:04:23
+
+Difficulty Mode: Easy
+Position    Nutzername (Username)     Zeit (Time)
+   #1           NOLIFE                  09:13
+   #2           haxor                   10:04
+   #3           sudokunator             12:53
+   #4           loser                   01:04:23
