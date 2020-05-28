@@ -30,7 +30,7 @@ int main() {
     for(int x = 0; x < 9; x++){
         int printArray[9];
         for(int y = 0; y < 9; y++){
-            printArray[y] = sudoku.field[1][x][y];
+            printArray[y] = sudoku.field[x][y][1];
         }
 
         printf("%d %d %d | %d %d %d | %d %d %d\n", printArray[0], printArray[1], printArray[2], printArray[3],
