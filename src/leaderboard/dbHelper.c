@@ -9,7 +9,7 @@
 
 // Connects to the SQLite3 DB.
 // Returns a SQLite3Context struct that holds the Connection informations.
-SQLite3Context connectToDB()
+SQLite3Context connectToDB(void)
 {
     SQLite3Context db;
     db.err_msg = NULL;

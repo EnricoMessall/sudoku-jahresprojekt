@@ -17,8 +17,8 @@ typedef struct db
 } SQLite3Context;
 
 SQLite3Context connectToDB(void);
-int disconnectFromDB(SQLite3Context);
-void setFK_ON(SQLite3Context);
-void dbCheckExecutionState(SQLite3Context);
+int disconnectFromDB(SQLite3Context db);
+void setFK_ON(SQLite3Context db);
+void dbCheckExecutionState(SQLite3Context db);
 
 #endif

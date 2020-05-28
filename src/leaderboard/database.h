@@ -22,10 +22,10 @@
 #define TBL_SCORE_COLUMN_Time "Time"
 #define TBL_SCORE_COLUMN_Difficulty "Difficulty"
 
-void createTableIfNotExists(SQLite3Context, const char *);
-void insertIntoTable(SQLite3Context, const char *);
-LeaderBoardElement *selectRecords(SQLite3Context, int);
-int callback(void *, int, char **, char **);
-static void add(LeaderBoardElement);
+void createTableIfNotExists(SQLite3Context db, const char *sql);
+void insertIntoTable(SQLite3Context db, const char *sql);
+LeaderBoardElement *selectRecords(SQLite3Context db, int difficulty);
+int callback(void *NotUsed, int nColumns, char **strArrRows, char **strArrColNames);
+static void add(LeaderBoardElement element);
 
 #endif
