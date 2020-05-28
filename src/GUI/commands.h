@@ -35,11 +35,6 @@ Command VALID_COMMANDS[] = {
         {CATEGORY_GAME}
     },
     {
-        "Reset Game",
-        "Resets the current game and starts a new on with the previous difficulty.",
-        {CATEGORY_GAME}        
-    },
-    {
         "Quit Game",
         "Quits the current game and goes back to the main menu.",
         {CATEGORY_GAME}

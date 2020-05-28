@@ -202,20 +202,6 @@ void printMenu(Menu menu) {
 
 /*
     description:
-        parses the time to a human readable one
-    variables:
-        time:
-            the time as long in milliseconds
-    returns:
-        the time as float in seconds
-*/
-float parseTime(long time) {
-    float tmp = time;
-    return tmp / 1000;
-}
-
-/*
-    description:
         prints the leaderboard in the console
     variables:
         *leadBoardElement:
@@ -233,7 +219,7 @@ void printLeaderboard(LeaderBoardElement *leaderBoardElement, int amount) {
             if(i % 10 == 0) {
                 printf("|| ------|------------------|-------------- ||\n");
             }
-            printf("|| %4i. | %16s | %13.4f ||\n", i+1, leaderBoardElement[i].user, parseTime(leaderBoardElement[i].time));
+            printf("|| %4i. | %16s | %13i ||\n", i+1, leaderBoardElement[i].user, (int)leaderBoardElement[i].time);
         }
         printf("==============================================\n");
     } else {
@@ -318,4 +304,10 @@ Change getChange(void) {
         fieldChange
     };
     return change;
+}
+
+void getUsername(char username[USER_NAME_MAX_LENGTH]) {
+    printf("Please enter a username (max length: %i): ", USER_NAME_MAX_LENGTH);
+    scanf("%16s", username);
+    flushInputStream();
 }
