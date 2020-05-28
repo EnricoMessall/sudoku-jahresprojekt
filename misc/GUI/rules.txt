@@ -1,4 +1,4 @@
-"Das Ziel des Spiels ist, das Spielfeld zu vervollstaendigen. 
+Das Ziel des Spiels ist, das Spielfeld zu vervollstaendigen. 
 Dabei sind die vom Spiel vorgegebenen Zahlen nicht veraenderbar. 
 Die leeren Kaestchen muessen mit Ziffern gefuellt werden. 
 Dabei gelten folgende drei Regeln:
@@ -7,4 +7,4 @@ Dabei gelten folgende drei Regeln:
     In jeder Spalte duerfen die Ziffern von 1 bis 9 nur einmal vorkommen
     In jedem Block duerfen die Ziffern von 1 bis 9 nur einmal vorkommen
 
-Das Spiel ist beendet, wenn alle Kaestchen korrekt gefuellt sind."
+Das Spiel ist beendet, wenn alle Kaestchen korrekt gefuellt sind.

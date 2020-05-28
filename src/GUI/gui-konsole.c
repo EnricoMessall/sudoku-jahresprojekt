@@ -1,6 +1,7 @@
 #include <gui.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 static char rules[] = "Das Ziel des Spiels ist, das Spielfeld zu vervollstaendigen.\nDabei sind die vom Spiel vorgegebenen Zahlen nicht veraenderbar.\nDie leeren Kaestchen muessen mit Ziffern gefuellt werden.\nDabei gelten folgende drei Regeln:\n\n\tIn jeder Zeile duerfen die Ziffern von 1 bis 9 nur einmal vorkommen\n\tIn jeder Spalte duerfen die Ziffern von 1 bis 9 nur einmal vorkommen\n\tIn jedem Block duerfen die Ziffern von 1 bis 9 nur einmal vorkommen\n\nDas Spiel ist beendet, wenn alle Kaestchen korrekt gefuellt sind.\n";
 
@@ -73,12 +74,8 @@ void printField(Sudoku sudoku) {
     printf("==================================\n");
 }  
 
-void printHintDialog(int coordinates[2], int old, int new) {
-    char oldChar = '.';
-    if(old != 0) {
-        oldChar = old + 48;
-    }
-    printf("Value at X:%i,Y:%i was changed: %c --> %i\n", coordinates[0], coordinates[1], oldChar, new);
+void printWin(int difficulty, int time) {
+    printf("Congratulations, you've won!\nYou solved the sudoku on difficulty %s.\nYou needed %i seconds.\n", parseDifficulty(difficulty), time);
 }
 
 /*
@@ -265,9 +262,10 @@ Change getChange(void) {
     int y = -1;
     int value = -1;
     do {
-        printf("Please enter Coordinates (Example: A1-2) or 'm' for menu\n");
+        printf("Please enter Coordinates (Example: A1-2) or 'm' for menu\n\n");
         printf("Input: ");
         scanf("%5s", input);
+        printf("\n");
         flushInputStream();
         if(sizeof(input) > 0) {
             //menu
@@ -318,4 +316,8 @@ void printRules(void) {
     printf("=============================== SUDOKU REGELN ===============================\n");
     printf("%s", rules);
     printf("=============================================================================\n");
+}
+
+void clearConsole() {
+    system("@cls||clear");
 }

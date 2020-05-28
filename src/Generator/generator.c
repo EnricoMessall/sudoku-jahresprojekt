@@ -129,7 +129,7 @@ Sudoku createNew(int difficulty) {
                 number = getRandomNumber();
                 numberAllowedValue = numberAllowed(field, x, y, number);
                 z++;
-                if(z > 50) goto loop; //aua
+                if(z > 25) goto loop; //aua
             }
             field[x][y] = number;
         }
@@ -173,7 +173,7 @@ Sudoku createNew(int difficulty) {
 }
 
 int calculateScore(Sudoku sudoku) {
-    return time(NULL) - sudoku.startTime + (sudoku.helpCounter * 30);
+    return time(NULL) - sudoku.startTime + sudoku.helpCounter * (30 * (sudoku.difficulty + 1));
 }
 
 int isSolved(Sudoku sudoku) {
