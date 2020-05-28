@@ -34,11 +34,11 @@ typedef struct leaderBoardElement
 } LeaderBoardElement;
 
 Sudoku getHelp(Sudoku sudoku);
-Sudoku createNew();
+Sudoku createNew(int difficulty);
 LeaderBoardElement *getLeaderBoardElements(int difficulty);
 char *fetchGameRules();
 // Calls save()
-int calculateScore(Sudoku sudoku, char user[USER_NAME_MAX_LENGTH]);
+int calculateScore(Sudoku sudoku);
 int save(LeaderBoardElement element);
 
 #endif
