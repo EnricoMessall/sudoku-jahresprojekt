@@ -5,6 +5,7 @@ set(CMAKE_C_STANDARD 99)
 include_directories(src)
 include_directories(${CMAKE_SOURCE_DIR}/src/leaderboard)
 include_directories(${CMAKE_SOURCE_DIR}/src/GUI)
+include_directories(${CMAKE_SOURCE_DIR}/src/Generator)
 
 add_executable(sudoku src/main.c)
 # add_executable(sudoku_win.exe WIN32 src/main.c) ## TODO: Check if this is working on Windows
