@@ -4,8 +4,7 @@
 // Saves the User's Scorestate in the Database.
 // NOTE: On first Error encountered while saving, any subsequent operation will be skipped
 // and a Errormessage will be displayed to the console.
-int save(LeaderBoardElement leaderBoardElement)
-{
+int save(LeaderBoardElement leaderBoardElement) {
     SQLite3Context db = connectToDB();
 
     // Check if connection was successful
@@ -27,8 +26,7 @@ int save(LeaderBoardElement leaderBoardElement)
 
 // Retrieves all the User Records based on the Difficulty [EASY, MEDIUM, HARD], ordered by Time ascending.
 // Returns the query in the form of an ordered Array of LeaderBoardElements.
-LeaderBoardElement *getLeaderBoardElements(int difficulty)
-{
+LeaderBoardElement *getLeaderBoardElements(int difficulty) {
     SQLite3Context db = connectToDB();
 
     // Check if connection was successful
