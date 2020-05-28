@@ -35,6 +35,11 @@ Command VALID_COMMANDS[] = {
         {CATEGORY_GAME}
     },
     {
+        "Print Rules",
+        "Prints the rules of sudoku",
+        {CATEGORY_GAME, CATEGORY_MAIN}
+    },
+    {
         "Quit Game",
         "Quits the current game and goes back to the main menu.",
         {CATEGORY_GAME}

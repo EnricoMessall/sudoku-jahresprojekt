@@ -26,6 +26,8 @@ int main() {
                     state = 1;
                 } else if(strcmp("Exit", command.name) == 0) {
                     exit(0);
+                } else if(strcmp("Print Rules", command.name) == 0) {
+                    printRules();
                 }
                 break;
             }
@@ -65,6 +67,8 @@ int main() {
                             sudoku.helpCounter = 0;
                         } else if(strcmp("Quit Game", command.name) == 0) {
                             state = 0;
+                        } else if(strcmp("Print Rules", command.name) == 0) {
+                            printRules();
                         }
                     }
                 }
