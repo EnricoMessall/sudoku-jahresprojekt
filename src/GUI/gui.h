@@ -39,3 +39,5 @@ int getDifficulty(void);
 Change getChange(void);
 
 void getHintCoordinates(int * coordinates);
+
+void getUsername(char username[USER_NAME_MAX_LENGTH]);
