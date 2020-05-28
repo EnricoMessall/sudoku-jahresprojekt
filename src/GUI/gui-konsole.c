@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+static char rules[] = "Das Ziel des Spiels ist, das Spielfeld zu vervollstaendigen.\nDabei sind die vom Spiel vorgegebenen Zahlen nicht veraenderbar.\nDie leeren Kaestchen muessen mit Ziffern gefuellt werden.\nDabei gelten folgende drei Regeln:\n\n\tIn jeder Zeile duerfen die Ziffern von 1 bis 9 nur einmal vorkommen\n\tIn jeder Spalte duerfen die Ziffern von 1 bis 9 nur einmal vorkommen\n\tIn jedem Block duerfen die Ziffern von 1 bis 9 nur einmal vorkommen\n\nDas Spiel ist beendet, wenn alle Kaestchen korrekt gefuellt sind.\n";
+
 void flushInputStream(void) {
    int ch;
    while ((ch = getchar()) != '\n' && ch != EOF) {}
@@ -310,4 +312,10 @@ void getUsername(char username[USER_NAME_MAX_LENGTH]) {
     printf("Please enter a username (max length: %i): ", USER_NAME_MAX_LENGTH);
     scanf("%16s", username);
     flushInputStream();
+}
+
+void printRules(void) {
+    printf("=============================== SUDOKU REGELN ===============================\n");
+    printf("%s", rules);
+    printf("=============================================================================\n");
 }
