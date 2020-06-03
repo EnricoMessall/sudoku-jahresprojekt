@@ -1,27 +1,21 @@
 INSERT INTO users (ID, Nickname)
-VALUES
-  (NULL, "haxor");
-INSERT INTO userScore (ID, UserID, Time, Difficulty)
-VALUES
-  (
+VALUES (NULL, "haxor");
+INSERT INTO userScore (ID, UserID, Time, Difficulty, Date)
+VALUES (
     NULL,
     (
-      SELECT
-        ID
+      SELECT ID
       FROM users
-      WHERE
-        Nickname = "haxor"
+      WHERE Nickname = "haxor"
     ),
     1589549576,
-    0
+    0,
+    strftime('%d-%m-%Y %H:%M:%S', 'now')
   );
-SELECT
-  Nickname,
+SELECT Nickname,
   Time,
-  Difficulty
+  Difficulty,
+  Date
 FROM userScore
-INNER JOIN users ON users.ID = userScore.UserID
-WHERE
-  Difficulty = 1
-ORDER BY
-  Time ASC;
+  INNER JOIN users ON users.ID = userScore.UserID -- WHERE Difficulty = 0
+ORDER BY Time ASC;

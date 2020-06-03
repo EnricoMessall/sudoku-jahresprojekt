@@ -12,6 +12,7 @@
 #define HARD 2
 
 #define USER_NAME_MAX_LENGTH 16
+#define DATE_MAX_LENGTH 20
 
 #define STATE_MAIN 0
 #define STATE_GAME 1
@@ -31,6 +32,7 @@ typedef struct leaderBoardElement
     int difficulty;
     long time;
     char user[USER_NAME_MAX_LENGTH];
+    char date[DATE_MAX_LENGTH];
 } LeaderBoardElement;
 
 Sudoku getHelp(Sudoku sudoku);
