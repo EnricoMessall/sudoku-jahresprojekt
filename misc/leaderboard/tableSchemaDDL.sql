@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS users(
   ID INTEGER PRIMARY KEY AUTOINCREMENT,
   Nickname VARCHAR(16) NOT NULL,
-  UNIQUE (Nickname)
+  UNIQUE(Nickname) ON CONFLICT IGNORE
 );
 -- NOTE: For the constraint to work properly, set: PRAGMA foreign_keys = ON
 -- see https://stackoverflow.com/a/52226336 for more information
@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS userScore(
   UserID INTEGER NOT NULL,
   Time INTEGER NOT NULL,
   Difficulty INTEGER NOT NULL,
-  UNIQUE (UserID, Difficulty) ON CONFLICT REPLACE CONSTRAINT users_userScore FOREIGN KEY(UserID) REFERENCES users(ID) ON UPDATE CASCADE ON DELETE CASCADE
+  Date DATETIME NOT NUll,
+  UNIQUE (Time, Date) ON CONFLICT REPLACE CONSTRAINT users_userScore FOREIGN KEY(UserID) REFERENCES users(ID) ON UPDATE CASCADE ON DELETE CASCADE
 );
