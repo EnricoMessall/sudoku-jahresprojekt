@@ -21,6 +21,7 @@
 #define TBL_SCORE_COLUMN_FK_UserID "UserID"
 #define TBL_SCORE_COLUMN_Time "Time"
 #define TBL_SCORE_COLUMN_Difficulty "Difficulty"
+#define TBL_SCORE_COLUMN_Date "Date"
 
 // Creates a SQLite3 Sudoku.db table based on the passed sql statement,
 // as long as the Database Connection State did not encounter any Errors before.

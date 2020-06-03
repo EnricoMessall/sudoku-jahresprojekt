@@ -35,9 +35,10 @@ int callback(void *NotUsed, int nColumns, char **strArrRows,
     strcpy(element.user, strArrRows[0] ? strArrRows[0] : "NULL");
     element.time = strArrRows[1] ? strtol(strArrRows[1], NULL, 10) : -1;
     element.difficulty = strArrRows[2] ? atoi(strArrRows[2]) : -1;
+    strcpy(element.date, strArrRows[3] ? strArrRows[3] : "NULL");
 
     // Add to the static LeaderBoardElement array, if is a valid element
-    if (strcmp(element.user, "NULL") != 0 && element.time != -1 && element.difficulty != -1)
+    if (strcmp(element.user, "NULL") != 0 && strcmp(element.date, "NULL") != 0 && element.time != -1 && element.difficulty != -1)
         add(element);
 
     return 0;
